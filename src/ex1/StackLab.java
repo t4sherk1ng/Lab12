@@ -28,4 +28,23 @@ public class StackLab implements LIFO{
         }
         return res;
     }
+
+    public static Stack<Integer> sortStack(Stack<Integer> stack) {
+        Stack<Integer> sortedStack = new Stack<>();
+
+        while (!stack.isEmpty()) {
+            int current = stack.pop();
+            while (!sortedStack.isEmpty() && sortedStack.peek() > current) {
+                stack.push(sortedStack.pop());
+            }
+            sortedStack.push(current);
+        }
+        while (!sortedStack.isEmpty()) {
+            stack.push(sortedStack.pop());
+        }
+        return stack;
+    }
+
+
+
 }
