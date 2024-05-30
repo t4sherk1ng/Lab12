@@ -5,8 +5,10 @@ public class Main {
         StackLab stackLab = new StackLab();
         stackLab.push(10);
         stackLab.push(20);
+        stackLab.push(40);
+        stackLab.push(2);
         System.out.println(stackLab.toString());
-        System.out.println(stackLab.pop());
-        System.out.println(stackLab.pop());
+        stackLab.sortStack();
+        System.out.println(stackLab.toString());
     }
 }

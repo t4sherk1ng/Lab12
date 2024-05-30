@@ -23,26 +23,29 @@ public class StackLab implements LIFO{
     @Override
     public String toString() {
         String res = "";
-        for (Integer i : stack) {
+        for (int i : stack) {
             res += i + " ";
         }
         return res;
     }
 
-    public static Stack<Integer> sortStack(Stack<Integer> stack) {
+    public void sortStack() {
         Stack<Integer> sortedStack = new Stack<>();
-
-        while (!stack.isEmpty()) {
-            int current = stack.pop();
+        Stack<Integer> temp = new Stack<>();
+        while (!this.stack.isEmpty()) {
+            int current = this.stack.pop();
             while (!sortedStack.isEmpty() && sortedStack.peek() > current) {
-                stack.push(sortedStack.pop());
+                this.stack.push(sortedStack.pop());
             }
             sortedStack.push(current);
         }
         while (!sortedStack.isEmpty()) {
-            stack.push(sortedStack.pop());
+            temp.push(sortedStack.pop());
         }
-        return stack;
+
+        while (!temp.isEmpty()) {
+            this.stack.push(temp.pop());
+        }
     }
 
 
